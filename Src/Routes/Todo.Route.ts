@@ -6,7 +6,7 @@ export const todoRouter = express.Router();
 
 todoRouter.use(authMiddleware);
 todoRouter.get('/get-todo', todoController.getAllList);
-todoRouter.get('/get-single-todo/:id', todoController.getSingleList);
 todoRouter.post('/create-todo', todoController.createList);
 todoRouter.put('/update-todo/:id', todoController.updateList);
+todoRouter.get('/get-single-todo/:id', todoController.getSingleList);
 todoRouter.delete('/delete-todo/:id', todoController.deleteList);
