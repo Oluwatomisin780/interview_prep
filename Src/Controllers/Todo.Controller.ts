@@ -71,16 +71,17 @@ export const updateList = async (req: Request, res: Response): Promise<any> => {
       description,
     },
   });
-  if (todo.userId !== userId) {
-    return res.status(401).json({
-      message: 'User not Authorized',
-    });
-  }
   if (!todo) {
     return res.status(404).json({
       message: ' todo does not exst',
     });
   }
+  if (todo.userId !== userId) {
+    return res.status(401).json({
+      message: 'User not Authorized',
+    });
+  }
+
   return res.status(200).json({
     todo,
   });
@@ -94,16 +95,17 @@ export const deleteList = async (req: Request, res: Response): Promise<any> => {
       id: parseInt(id),
     },
   });
-  if (todo.userId !== userId) {
-    return res.status(401).json({
-      message: 'User not Authorized',
-    });
-  }
   if (!todo) {
     return res.status(404).json({
       message: 'todo does not exist',
     });
   }
+  if (todo.userId !== userId) {
+    return res.status(401).json({
+      message: 'User not Authorized',
+    });
+  }
+
   return res.status(200).json({
     message: 'todo successfully deleted',
   });
